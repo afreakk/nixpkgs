@@ -1,4 +1,4 @@
-{ stdenv, callPackage, wineUnstable }:
+{ stdenv, callPackage, wineUnstable, hexdump, autoconf }:
 
 with callPackage ./util.nix {};
 
@@ -12,6 +12,9 @@ in assert stdenv.lib.getVersion wineUnstable == patch.version;
 
   name = "${self.name}-staging";
 
+  # nativeBuildInputs = [
+  #   hexdump autoconf
+  # ];
   postPatch = self.postPatch or "" + ''
     patchShebangs tools
     cp -r ${patch}/patches .

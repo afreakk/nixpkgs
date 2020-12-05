@@ -19,7 +19,7 @@ stdenv.mkDerivation ((lib.optionalAttrs (buildScript != null) {
 
   # Fixes "Compiler cannot create executables" building wineWow with mingwSupport
   # FIXME Breaks wineStaging builds
-  strictDeps = supportFlags.mingwSupport;
+  # strictDeps = supportFlags.mingwSupport;
 
   nativeBuildInputs = [
     pkgconfig fontforge makeWrapper flex bison
